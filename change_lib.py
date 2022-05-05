@@ -47,3 +47,8 @@ def changefunc(in_path,out_dir):
    PtoJ(in_path,out_dir)
    im_path = out_dir+ '\\'+os.path.basename(in_path)[:-4] +'.jpg'
    AddExif(im_path)
+
+p = os.getcwd()
+p2 = p +'\\謹賀新年.png'
+
+changefunc(p2,p)
