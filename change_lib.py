@@ -1,13 +1,7 @@
-from email.mime import base
-import imp
 import os
-import pathlib
 import datetime
-import pprint
-import time
-import platform
 import re
-from PIL import Image, ExifTags
+from PIL import Image
 import piexif
 
 def PtoJ(input_path,output_dir):
@@ -16,7 +10,7 @@ def PtoJ(input_path,output_dir):
    im2 = im.convert("RGB")
    output_path = output_dir + '\\' + basename [:-4] + '.jpg'
    im2.save(output_path, "JPEG", quality=95)#クオリティ変えた方がいい？
-   print(basename,'is converted to JPEG')
+   print(basename,'is copied')
 
 def GetDT(basename):
    stamp_list = re.split('[_.]',basename)
@@ -45,11 +39,16 @@ def AddExif(input_path):
    exif_dict["GPS"] = gps
    exif_bytes = piexif.dump(exif_dict)
    piexif.insert(exif_bytes,input_path)
-   print('Add TimeStamp to',basename)
-
-
-
+   ex_d =piexif.load(input_path)
+   tcheck = ex_d["Exif"][piexif.ExifIFD.DateTimeOriginal]
+   print('Add TimeStamp to',basename,'(',tcheck,')')
+   
+def changefunc(in_path,out_dir):
+   PtoJ(in_path,out_dir)
+   im_path = out_dir+ '\\'+os.path.basename(in_path)[:-4] +'.jpg'
+   AddExif(im_path)
+   
 p = os.getcwd()
-p2 = p +'\\VRChat_1920x1080_2022-03-04_22-11-26.015.jpg' 
+p2 = p +'\\VRChat_1920x1080_2022-03-04_22-11-26.015.png' 
 
-AddExif(p2)
+changefunc(p2,p)
