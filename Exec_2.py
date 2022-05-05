@@ -1,10 +1,11 @@
 import datetime
 import os
-import 
 import glob
 import change_lib
 
 #最新の画像のみをJPEGとしてコピーするスクリプト
+#第一弾：今月のフォルダ全体をクローン
+#そのうち効率化
 TODAY = datetime.date.today()
 fname = TODAY.strftime('%Y-%m')
 in_dir = os.getcwd() + '\\VRChat\\' + fname
