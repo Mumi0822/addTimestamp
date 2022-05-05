@@ -47,8 +47,3 @@ def changefunc(in_path,out_dir):
    PtoJ(in_path,out_dir)
    im_path = out_dir+ '\\'+os.path.basename(in_path)[:-4] +'.jpg'
    AddExif(im_path)
-   
-p = os.getcwd()
-p2 = p +'\\VRChat_1920x1080_2022-03-04_22-11-26.015.png' 
-
-changefunc(p2,p)
