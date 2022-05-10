@@ -1,8 +1,8 @@
-# addTimestamp  
+# addTimestamp  PC用VRChat向け
 **注意：このスクリプトは学生が練習用に書いたスクリプトですので私の使用環境で問題ない程度の最低限の例外処理やテストを施していませんのでお気を付けください。何かあっても保証できません**  
   
 Ver1.0 2022/05/10　  
-VRChatフォルダの写真をJPEG化してExifで撮影日時を自動でつけます。  
+VRChatフォルダのスクショをJPEGコピーしてExifで撮影日時を自動でつけます。  
   
 change_lib.py :基本機能   
      PtoJ(input_path,output_dir):input_pathで指定したPNGファイルのコピーをJPEGファイルとしてoutput_dirに生成　**注意：input_pathにPNG以外を指定した場合を考えずに作ってた。元ファイルに危険はないはず**  
