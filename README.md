@@ -14,3 +14,4 @@ Exec_1.py : このスクリプトと同階層にあるVRChat/内の全ての画�
 Exec_2.py : VRChat/下の今月分のフォルダ内だけをVRChat_JPEG/にJPEGコピー  
 (VRChat終了後に毎回自動で走るようにしておくと最新分だけを追加できる(重複は上書きされる))  
 (明らかに冗長ですので今後仕様変更する予定)  
+![FSaIX9rUcAI2WKv](https://user-images.githubusercontent.com/86220393/167672601-1a407ab6-03f6-47bd-b99c-95e8b7f5aeeb.png)
