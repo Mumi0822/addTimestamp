@@ -4,15 +4,18 @@ import re
 import shutil
 from PIL import Image
 import piexif
+import imghdr
 
 def PtoJ(input_path,output_dir):
    basename  = os.path.basename(input_path)
-   im = Image.open(input_path)  
-   im2 = im.convert("RGB")
-   output_path = output_dir + '\\' + basename [:-4] + '.jpg'
-   im2.save(output_path, "JPEG", quality=95)#クオリティ変えた方がいい？
-   print(basename,'is copied')
-
+   im = Image.open(input_path) 
+   if imghdr.what(input_path) == 'png':
+      im2 = im.convert("RGB")
+      output_path = output_dir + '\\' + basename [:-4] + '.jpg'
+      im2.save(output_path, "JPEG", quality=95)#クオリティ変えた方がいい？
+      print(basename,'is copied')
+   else :
+      print(basename,'is skipped!!!')
 def GetDT(basename):
    try:
       stamp_list = re.split('[_.]',basename)
